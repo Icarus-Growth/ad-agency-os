@@ -1,0 +1,342 @@
+{
+  "form_key": "onboarding",
+  "form_version": "ads-v1",
+  "title": "Client onboarding",
+  "intro": {
+    "minutes": 20,
+    "bring": [
+      "A short description of your offer",
+      "Two or three of your best customer results",
+      "Any past ad results (rough numbers are fine)",
+      "Access to your ad account and Facebook page"
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "title": "Your details",
+      "blurb": "Who you are and how we reach you."
+    },
+    {
+      "step": 2,
+      "title": "Your offer",
+      "blurb": "What you sell and why people buy it. We write the ads from this."
+    },
+    {
+      "step": 3,
+      "title": "Your customers",
+      "blurb": "Who the ads are for, and what makes them act."
+    },
+    {
+      "step": 4,
+      "title": "Ads so far",
+      "blurb": "What you have tried, and how you want leads to come in."
+    },
+    {
+      "step": 5,
+      "title": "Access",
+      "blurb": "The accounts we need to get into. If something is not done yet, choose Not yet. We will do it with you on the call."
+    },
+    {
+      "step": 6,
+      "title": "Goals",
+      "blurb": "What good looks like for you."
+    },
+    {
+      "step": 7,
+      "title": "Review",
+      "blurb": "Check your answers. Nothing is sent until you press Submit."
+    }
+  ],
+  "flow": [
+    {
+      "step": 1,
+      "id": "full_name",
+      "label": "Your name",
+      "type": "short_text",
+      "required": true,
+      "placeholder": "e.g. Sam Taylor",
+      "prefill": "name"
+    },
+    {
+      "step": 1,
+      "id": "email",
+      "label": "Your email",
+      "type": "email",
+      "required": true,
+      "placeholder": "e.g. sam@example.com",
+      "prefill": "email",
+      "help": "We send updates about your account to this address."
+    },
+    {
+      "step": 1,
+      "id": "phone",
+      "label": "Best phone number for business",
+      "type": "short_text",
+      "required": false,
+      "placeholder": "e.g. +1 555 010 0100",
+      "prefill": "phone"
+    },
+    {
+      "step": 1,
+      "id": "company_name",
+      "label": "Company name",
+      "type": "short_text",
+      "required": true,
+      "placeholder": "e.g. Example Co",
+      "prefill": "company"
+    },
+    {
+      "step": 1,
+      "id": "website",
+      "label": "Company website",
+      "type": "url",
+      "required": true,
+      "placeholder": "e.g. example.com",
+      "none_option": {
+        "label": "We do not have a website yet",
+        "value": "No website yet"
+      }
+    },
+    {
+      "step": 1,
+      "id": "team_contacts",
+      "label": "Who else on your team should we talk to?",
+      "type": "long_text",
+      "required": false,
+      "rows": 3,
+      "help": "Name, job title and email for each person. Put each person on a new line.",
+      "placeholder": "e.g. Alex Kim, Head of Sales, alex@example.com"
+    },
+    {
+      "step": 2,
+      "id": "offer_summary",
+      "label": "What do you sell?",
+      "type": "long_text",
+      "required": true,
+      "rows": 5,
+      "help": "Describe your main offer as you would to a new customer. What do they get, and how does it work?"
+    },
+    {
+      "step": 2,
+      "id": "main_result",
+      "label": "What result do your customers get?",
+      "type": "long_text",
+      "required": true,
+      "help": "Use numbers if you can."
+    },
+    {
+      "step": 2,
+      "id": "case_studies",
+      "label": "Your best results with customers",
+      "type": "long_text",
+      "required": true,
+      "rows": 5,
+      "help": "Two or three short stories or links."
+    },
+    {
+      "step": 2,
+      "id": "testimonials",
+      "label": "Links to reviews or testimonial videos",
+      "type": "long_text",
+      "required": false
+    },
+    {
+      "step": 3,
+      "id": "customer_avatar",
+      "label": "Describe your best customer",
+      "type": "long_text",
+      "required": true,
+      "rows": 5,
+      "help": "Age, job, where they live, what they earn, anything that helps us find them."
+    },
+    {
+      "step": 3,
+      "id": "customer_pains",
+      "label": "What problems or frustrations make them need you?",
+      "type": "long_text",
+      "required": true
+    },
+    {
+      "step": 3,
+      "id": "customer_desires",
+      "label": "What do they want most?",
+      "type": "long_text",
+      "required": true
+    },
+    {
+      "step": 3,
+      "id": "objections",
+      "label": "Why do people say no to you?",
+      "type": "long_text",
+      "required": false,
+      "help": "The doubts you hear on sales calls. The ads can answer them before the call."
+    },
+    {
+      "step": 3,
+      "id": "locations",
+      "label": "Where should the ads run?",
+      "type": "short_text",
+      "required": true,
+      "placeholder": "e.g. Texas and Florida, or the whole of the UK"
+    },
+    {
+      "step": 4,
+      "id": "ran_ads_before",
+      "label": "Have you run paid ads before?",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "step": 4,
+      "id": "past_results",
+      "label": "What did you spend, and what did you get back?",
+      "type": "long_text",
+      "required": true,
+      "show_if": {
+        "question": "ran_ads_before",
+        "equals": "Yes"
+      },
+      "help": "Rough numbers are fine. Tell us what worked and what did not."
+    },
+    {
+      "step": 4,
+      "id": "best_ads",
+      "label": "Links to your best ads so far",
+      "type": "long_text",
+      "required": false,
+      "show_if": {
+        "question": "ran_ads_before",
+        "equals": "Yes"
+      }
+    },
+    {
+      "step": 4,
+      "id": "monthly_budget",
+      "label": "How much do you plan to spend on ads each month?",
+      "type": "short_text",
+      "required": true
+    },
+    {
+      "step": 4,
+      "id": "lead_destination",
+      "label": "How should new leads come in?",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        "Booked calls",
+        "A form on a landing page",
+        "Phone calls",
+        "Online sales"
+      ]
+    },
+    {
+      "step": 4,
+      "id": "filming",
+      "label": "Can you film videos for the ads?",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        "Yes, I can film on my phone",
+        "Yes, we have someone who films",
+        "No, we need help with this"
+      ]
+    },
+    {
+      "step": 5,
+      "id": "access_ad_account",
+      "label": "Give us access to your ad account",
+      "type": "checkbox",
+      "required": false,
+      "help": "For example, add us as a partner in Meta Business Manager, or as a user in Google Ads. Use the email address in our welcome message."
+    },
+    {
+      "step": 5,
+      "id": "access_pages",
+      "label": "Give us access to your Facebook page and Instagram account",
+      "type": "checkbox",
+      "required": false
+    },
+    {
+      "step": 5,
+      "id": "tracking",
+      "label": "Is ad tracking (the pixel) set up on your website?",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No",
+        "Not sure"
+      ]
+    },
+    {
+      "step": 5,
+      "id": "brand_files",
+      "label": "Upload your logo, brand colours and any photos or videos to the shared folder we sent you",
+      "type": "checkbox",
+      "required": false
+    },
+    {
+      "step": 5,
+      "id": "access_notes",
+      "label": "Is there any access you cannot give us yet?",
+      "type": "long_text",
+      "required": false,
+      "help": "Tell us what it is and why. For example, the login belongs to someone who is away. We will sort it out with you on the onboarding call."
+    },
+    {
+      "step": 6,
+      "id": "goal_90_days",
+      "label": "What would make the first 90 days a success for you?",
+      "type": "long_text",
+      "required": true,
+      "help": "For example, a number of leads or booked calls each week."
+    },
+    {
+      "step": 6,
+      "id": "target_cost_per_lead",
+      "label": "Do you have a target cost per lead?",
+      "type": "short_text",
+      "required": false
+    },
+    {
+      "step": 6,
+      "id": "worries",
+      "label": "Is there anything you are worried about?",
+      "type": "long_text",
+      "required": false,
+      "help": "For example, something that went wrong with an agency before. We would rather know now."
+    },
+    {
+      "step": 6,
+      "id": "anything_else",
+      "label": "Anything else we should know before the onboarding call?",
+      "type": "long_text",
+      "required": false
+    }
+  ],
+  "done": {
+    "heading": "That's everything. Thank you.",
+    "blurb": "Your answers are in. We read them before your onboarding call, so the call starts with your business and not with questions you have already answered.",
+    "next": {
+      "heading": "What happens next",
+      "items": [
+        "We read your answers and prepare for the onboarding call.",
+        "On the call we check the ad account access together and go through any answer you were not sure about.",
+        "Then we write the first ad scripts and send them to you to check."
+      ]
+    },
+    "links": [
+      {
+        "heading": "Book your onboarding call",
+        "body": "Choose a time that suits you.",
+        "cta": "Book the call",
+        "url": ""
+      }
+    ]
+  }
+}

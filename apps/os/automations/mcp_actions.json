@@ -1,0 +1,142 @@
+{
+  "_about": "The AI connector's actions for this agency type (apps/os/automations/mcp_server.py). 'actions' is the full list the connector offers; each board says which column is its name, its stages in order, who works on it, the one 'work link' column and the columns cards.update may change. Stage names must be spelled exactly as in the database; the tests check them. 'documents' on a board and 'client_documents' name the long texts that docs.read and docs.write open: the field key (the same in the app and the database), its label, and the old link column kept for 'paste a link instead'.",
+  "actions": [
+    "my_queue",
+    "urgent",
+    "boards",
+    "cards.search",
+    "cards.get",
+    "docs.read",
+    "clients.get",
+    "team",
+    "calls.get",
+    "forms.get",
+    "metrics.get",
+    "brain.index",
+    "brain.map",
+    "brain.search",
+    "brain.read",
+    "cards.create",
+    "cards.move",
+    "cards.update",
+    "cards.note",
+    "docs.write",
+    "calls.add",
+    "metrics.add",
+    "clients.update"
+  ],
+  "boards": {
+    "tasks": {
+      "name": "task_name",
+      "stages": [
+        "-1 - Rejected",
+        "0 - Backlog",
+        "9 - Blocked",
+        "10 - In Progress",
+        "29 - Amendments",
+        "30 - In Review",
+        "100 - Complete"
+      ],
+      "people": [
+        "assignee_id",
+        "reviewer_id"
+      ],
+      "work_link": "links",
+      "fields": [
+        "due_date",
+        "notes",
+        "links"
+      ],
+      "created_by": "created_by_id"
+    },
+    "creatives": {
+      "name": "creative_name",
+      "stages": [
+        "0 - To Script",
+        "10 - Script Review",
+        "19 - Script Changes",
+        "20 - Awaiting Footage",
+        "30 - To Edit",
+        "39 - Redo Requested",
+        "40 - Internal Review",
+        "49 - Client Changes",
+        "50 - Client Review",
+        "60 - Ready To Launch",
+        "100 - Launched"
+      ],
+      "people": [
+        "assignee_id",
+        "reviewer_id"
+      ],
+      "work_link": "edited_url",
+      "fields": [
+        "due_date",
+        "notes",
+        "script_url",
+        "raw_footage_url",
+        "edited_url",
+        "feedback_notes"
+      ],
+      "documents": {
+        "script": {
+          "label": "Script",
+          "link": "script_url"
+        }
+      }
+    }
+  },
+  "client_stages": [
+    "0 - Paid",
+    "10 - Contract Sent",
+    "20 - Contract Signed",
+    "30 - Set-Up",
+    "40 - Call Booked",
+    "50 - Call Taken",
+    "100 - Onboarded"
+  ],
+  "client_fields": [
+    "client_name",
+    "status",
+    "website",
+    "contact_name",
+    "contact_email",
+    "contact_phone",
+    "start_date",
+    "end_date",
+    "services",
+    "onboarding_stage",
+    "account_manager_id",
+    "drive_folder_url",
+    "notes",
+    "media_buyer_id",
+    "editor_id",
+    "market",
+    "ad_platform",
+    "ad_account_id",
+    "ad_account_access",
+    "monthly_ad_budget",
+    "lead_sheet_url",
+    "footage_folder_url"
+  ],
+  "call_types": [
+    "Sales",
+    "Onboarding",
+    "Check-In",
+    "Internal",
+    "Other"
+  ],
+  "metrics": {
+    "daily": [
+      "spend",
+      "leads",
+      "calls_booked",
+      "source"
+    ],
+    "weekly": [
+      "spend",
+      "leads",
+      "calls_booked",
+      "note"
+    ]
+  }
+}
