@@ -1,4 +1,4 @@
--- SQL editor paste 16 of 18: 0017_ad_campaigns.sql
+-- SQL editor paste 16 of 19: 0017_ad_campaigns.sql
 -- Paste all of this into the Supabase SQL editor and press Run.
 -- Wait for "Success" before you paste the next file.
 
