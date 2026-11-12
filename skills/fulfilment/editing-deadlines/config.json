@@ -1,0 +1,9 @@
+{
+  "_about": "Rules for the editing deadlines post. Change a value here; no code change is needed.",
+  "due_soon_days": 2,
+  "channel": "task-updates",
+  "board": "creatives",
+  "board_label": "Editing pipeline",
+  "name_column": "creative_name",
+  "max_lines_per_person": 30
+}

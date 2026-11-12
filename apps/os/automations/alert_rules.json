@@ -9,9 +9,15 @@
       ]
     },
     "creatives": {
-      "label": "Creatives",
+      "label": "Editing pipeline",
       "final": [
         "100 - Launched"
+      ]
+    },
+    "ad_campaigns": {
+      "label": "Campaigns",
+      "final": [
+        "100 - Ended"
       ]
     }
   },
@@ -248,6 +254,62 @@
         "client.media_buyer_id"
       ],
       "action": "Nothing more to do. The launch date is saved on the card."
+    },
+    {
+      "board": "ad_campaigns",
+      "to": [
+        "30 - Client Approval"
+      ],
+      "channel": "review",
+      "bot_name": "Campaign For Client Approval",
+      "emoji": "👀",
+      "tag": [
+        "client.account_manager_id",
+        "owner"
+      ],
+      "action": "Send the campaign plan to the client, then move the card when they answer."
+    },
+    {
+      "board": "ad_campaigns",
+      "to": [
+        "40 - Ready To Launch"
+      ],
+      "channel": "task-updates",
+      "bot_name": "Campaign Ready To Launch",
+      "emoji": "🚀",
+      "tag": [
+        "assignee",
+        "client.media_buyer_id"
+      ],
+      "action": "Launch the campaign, then move it to Live."
+    },
+    {
+      "board": "ad_campaigns",
+      "to": [
+        "50 - Live"
+      ],
+      "channel": "approved",
+      "bot_name": "Campaign Live",
+      "emoji": "🙌",
+      "tag": [
+        "client.account_manager_id",
+        "owner"
+      ],
+      "action": "Tell the client it is live."
+    },
+    {
+      "board": "ad_campaigns",
+      "to": [
+        "100 - Ended"
+      ],
+      "channel": "approved",
+      "bot_name": "Campaign Ended",
+      "emoji": "🏁",
+      "tag": [
+        "client.account_manager_id",
+        "owner"
+      ],
+      "action": "Send the client the end-of-campaign numbers."
     }
   ]
 }

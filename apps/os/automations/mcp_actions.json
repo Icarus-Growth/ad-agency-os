@@ -1,5 +1,6 @@
 {
   "_about": "The AI connector's actions for this agency type (apps/os/automations/mcp_server.py). 'actions' is the full list the connector offers; each board says which column is its name, its stages in order, who works on it, the one 'work link' column and the columns cards.update may change. Stage names must be spelled exactly as in the database; the tests check them. 'documents' on a board and 'client_documents' name the long texts that docs.read and docs.write open: the field key (the same in the app and the database), its label, and the old link column kept for 'paste a link instead'.",
+  "agency_type": "ads",
   "actions": [
     "my_queue",
     "urgent",
@@ -16,6 +17,10 @@
     "brain.map",
     "brain.search",
     "brain.read",
+    "brain.list",
+    "skills.list",
+    "skills.read",
+    "db.read",
     "cards.create",
     "cards.move",
     "cards.update",
@@ -23,6 +28,7 @@
     "docs.write",
     "calls.add",
     "metrics.add",
+    "db.write",
     "clients.update"
   ],
   "boards": {
@@ -75,12 +81,46 @@
         "script_url",
         "raw_footage_url",
         "edited_url",
-        "feedback_notes"
+        "feedback_notes",
+        "ad_campaign_id"
       ],
       "documents": {
         "script": {
           "label": "Script",
           "link": "script_url"
+        }
+      }
+    },
+    "ad_campaigns": {
+      "name": "campaign_name",
+      "stages": [
+        "0 - Backlog",
+        "10 - Planning",
+        "20 - Building",
+        "30 - Client Approval",
+        "40 - Ready To Launch",
+        "50 - Live",
+        "60 - Optimising",
+        "100 - Ended"
+      ],
+      "people": [
+        "assignee_id"
+      ],
+      "work_link": "brief_doc_url",
+      "fields": [
+        "due_date",
+        "notes",
+        "platform",
+        "objective",
+        "launch_date",
+        "end_date",
+        "brief_doc_url",
+        "results_notes"
+      ],
+      "documents": {
+        "brief_doc": {
+          "label": "Brief",
+          "link": "brief_doc_url"
         }
       }
     }

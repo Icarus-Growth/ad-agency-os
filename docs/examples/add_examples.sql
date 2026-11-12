@@ -55,6 +55,16 @@ insert into public.creatives (creative_name, client_id, stage, assignee_id, revi
   ('Example: three quick tips',    'cccccccc-0000-4000-8000-000000000002', '20 - Awaiting Footage','aaaaaaaa-0000-4000-8000-000000000001', null,                                  'Example angle', current_date + 4,  true),
   ('Example: first script',        'cccccccc-0000-4000-8000-000000000003', '0 - To Script',       'aaaaaaaa-0000-4000-8000-000000000002', null,                                   null,            current_date + 6,  true);
 
+-- Example ad campaigns (0017). The creatives of client A run in its live campaign.
+insert into public.ad_campaigns (campaign_name, client_id, stage, assignee_id, platform, objective, launch_date, due_date, results_notes, is_example) values
+  ('Example: spring leads',      'cccccccc-0000-4000-8000-000000000001', '60 - Optimising', 'aaaaaaaa-0000-4000-8000-000000000002', 'Example platform', 'Leads',  current_date - 20, current_date - 21, 'Example: cost per lead down a fifth since launch.', true),
+  ('Example: retargeting',       'cccccccc-0000-4000-8000-000000000002', '20 - Building',   'aaaaaaaa-0000-4000-8000-000000000002', 'Example platform', 'Calls',  null,              current_date + 5,  null, true),
+  ('Example: first test',        'cccccccc-0000-4000-8000-000000000003', '0 - Backlog',     null,                                   'Example platform', 'Leads',  null,              current_date + 10, null, true);
+
+update public.creatives c set ad_campaign_id = a.id
+from public.ad_campaigns a
+where a.campaign_name = 'Example: spring leads' and a.is_example and c.client_id = a.client_id and c.is_example;
+
 insert into public.daily_metrics (client_id, metric_date, spend, leads, calls_booked, source, is_example) values
   ('cccccccc-0000-4000-8000-000000000001', current_date - 3, 100.00, 8, 2, 'Example platform', true),
   ('cccccccc-0000-4000-8000-000000000001', current_date - 2, 100.00, 5, 1, 'Example platform', true),

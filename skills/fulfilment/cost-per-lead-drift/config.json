@@ -1,0 +1,13 @@
+{
+  "_about": "Rules for the cost per lead check. Change a number here; no code change is needed.",
+  "recent_days": 7,
+  "baseline_days": 28,
+  "drift_percent": 25,
+  "min_recent_days": 5,
+  "min_baseline_days": 14,
+  "min_baseline_leads": 5,
+  "min_recent_spend": 0,
+  "use_client_target": true,
+  "channel": "needs-a-person",
+  "currency": "USD"
+}
