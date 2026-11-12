@@ -1,0 +1,10 @@
+{
+  "_about": "Rules for the weekly client report. Change a value here; no code change is needed.",
+  "weekday": "Monday",
+  "channel": "review",
+  "currency": "USD",
+  "show_calls_booked": true,
+  "skip_when_nothing_to_say": true,
+  "greeting": "Hi {name},",
+  "sign_off": "Thanks,\nThe team"
+}

@@ -21,6 +21,16 @@ export const LADDERS = {
     '100 - Launched',
   ],
   creative_format: ['Video'],
+  ad_campaign_stage: [
+    '0 - Backlog',
+    '10 - Planning',
+    '20 - Building',
+    '30 - Client Approval',
+    '40 - Ready To Launch',
+    '50 - Live',
+    '60 - Optimising',
+    '100 - Ended',
+  ],
 } as const satisfies Ladders;
 
 export const AGENCY: AgencyConfig = {
@@ -28,7 +38,7 @@ export const AGENCY: AgencyConfig = {
   boards: [
     {
       table: 'creatives',
-      label: 'Creatives',
+      label: 'Editing pipeline',
       item: 'creative',
       desc: 'One card is one ad creative for one client, from script to launched.',
       nameKey: 'creative_name',
@@ -36,11 +46,12 @@ export const AGENCY: AgencyConfig = {
       ladder: 'creative_stage',
       closed: ['100 - Launched'],
       clientRequired: true,
-      card: ['client_id', 'assignee_id', 'due_date'],
+      card: ['ad_campaign_id', 'assignee_id', 'due_date'],
       sections: [
-        { title: 'Basic details', desc: 'What the creative is, for which client, and who works on it.', fields: [
+        { title: 'Basic details', desc: 'What the creative is, for which client and campaign, and who works on it.', fields: [
           { key: 'creative_name', label: 'Creative', type: 'text', required: true },
           { key: 'client_id', label: 'Client', type: 'client', required: true },
+          { key: 'ad_campaign_id', label: 'Campaign', type: 'card', board: 'ad_campaigns', desc: 'The ad campaign this creative runs in. Pick a campaign of the same client.' },
           { key: 'assignee_id', label: 'Assignee', type: 'person', desc: 'Who must act now: the script writer, then the editor.' },
           { key: 'reviewer_id', label: 'Reviewer', type: 'person', desc: 'Who checks the script and the edit.' },
           { key: 'format', label: 'Format', type: 'choice', list: 'creative_format' },
@@ -64,7 +75,40 @@ export const AGENCY: AgencyConfig = {
           { key: 'notes', label: 'Notes', type: 'longtext' },
         ] },
       ],
-      create: ['creative_name', 'client_id', 'assignee_id', 'due_date'],
+      create: ['creative_name', 'client_id', 'ad_campaign_id', 'assignee_id', 'due_date'],
+    },
+    {
+      table: 'ad_campaigns',
+      label: 'Campaigns',
+      item: 'campaign',
+      desc: 'One card is one ad campaign for one client, from planning to ended. A live campaign stays open.',
+      nameKey: 'campaign_name',
+      stageKey: 'stage',
+      ladder: 'ad_campaign_stage',
+      closed: ['100 - Ended'],
+      live: ['50 - Live', '60 - Optimising'],
+      clientRequired: true,
+      card: ['client_id', 'assignee_id', 'due_date'],
+      sections: [
+        { title: 'Basic details', desc: 'What the campaign is, for which client, and who works on it.', fields: [
+          { key: 'campaign_name', label: 'Campaign', type: 'text', required: true },
+          { key: 'client_id', label: 'Client', type: 'client', required: true },
+          { key: 'assignee_id', label: 'Assignee', type: 'person', desc: 'Who must act now: the media buyer, as a rule.' },
+          { key: 'due_date', label: 'Due date', type: 'date' },
+        ] },
+        { title: 'Campaign details', desc: 'For the media buyer: where it runs, what it is for, and the brief.', fields: [
+          { key: 'platform', label: 'Platform', type: 'text', desc: 'For example Meta, Google, TikTok or LinkedIn.' },
+          { key: 'objective', label: 'Objective', type: 'text', desc: 'For example leads, sales or calls booked.' },
+          { key: 'brief_doc', label: 'Brief', type: 'document', link: 'brief_doc_url', desc: 'The campaign brief: the offer, the audience and the angles to test.' },
+          { key: 'launch_date', label: 'Launch date', type: 'date' },
+          { key: 'end_date', label: 'End date', type: 'date' },
+        ] },
+        { title: 'Results and notes', desc: 'What the campaign did, and what to change next.', fields: [
+          { key: 'results_notes', label: 'Results', type: 'longtext' },
+          { key: 'notes', label: 'Notes', type: 'longtext' },
+        ] },
+      ],
+      create: ['campaign_name', 'client_id', 'assignee_id', 'due_date'],
     },
   ],
   lists: [],
